@@ -113,7 +113,8 @@ int Account:: Exist()
     return 1; 
 }
 
-int main(){
+int main()
+{
   current_acct c[3];
   savings_acct s[3];
   int sa=0,cu=0;
@@ -163,7 +164,7 @@ int main(){
       }
 
     }
-      }
+  }
 
   
   else if(choice1==2)
@@ -177,8 +178,7 @@ int main(){
       cin>>acct;
       if(acct<=3 && acct>0)
       {
-        if(acct<=3 && acct>0)
-      {
+       
         if(s[acct-1].Exist()==0)
         {
           cout<<"\n\t Account not found!"<<endl;
@@ -189,7 +189,7 @@ int main(){
           cout<<"\n Menu \n 1.To deposit an amount \n 2.To withdraw an amount \n 3.To display balance \n 4.To display with full details \n 5.Exit \n Enter your choice \n";
           int choice4;
           cin>>choice4;
-     switch(choice4)
+          switch(choice4)
       {
        case 1 : s[acct-1].deposit_savings_bal();
 
@@ -227,7 +227,8 @@ int main(){
       cin>>acct;
       if(acct<=3 && acct>0)
       {
-        if(c[acct-1].Exist()==0){
+        if(c[acct-1].Exist()==0)
+        {
           cout<<"\n\t Account not found!"<<endl;
           goto Q;
         }
@@ -271,3 +272,4 @@ int main(){
   return 0;
 
 }
+
