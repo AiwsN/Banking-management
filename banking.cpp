@@ -25,6 +25,7 @@ public:
        cout<<"\n Phone number :- "<<phone;
 
    }
+   int Exist();
 };
 
 class current_acct : public Account
@@ -103,6 +104,15 @@ static double savings_bal;
 };
 double savings_acct::savings_bal=0;
 
+int Account:: Exist()
+{
+  if(acc_holder_name==""){
+    return 0;
+  }
+  else
+    return 1; 
+}
+
 int main(){
   current_acct c[3];
   savings_acct s[3];
@@ -167,6 +177,13 @@ int main(){
       cin>>acct;
       if(acct<=3 && acct>0)
       {
+        if(acct<=3 && acct>0)
+      {
+        if(s[acct-1].Exist()==0)
+        {
+          cout<<"\n\t Account not found!"<<endl;
+          goto Q;
+        }
         while(1)
         {
           cout<<"\n Menu \n 1.To deposit an amount \n 2.To withdraw an amount \n 3.To display balance \n 4.To display with full details \n 5.Exit \n Enter your choice \n";
@@ -198,7 +215,8 @@ int main(){
   
     }
     else
-      cout<<"\n Invalid account";
+      cout<<"\n Invalid account number";
+      goto Q;
 
       
 
@@ -209,6 +227,10 @@ int main(){
       cin>>acct;
       if(acct<=3 && acct>0)
       {
+        if(c[acct-1].Exist()==0){
+          cout<<"\n\t Account not found!"<<endl;
+          goto Q;
+        }
         while(1)
         {
           cout<<"\n Menu \n 1.To deposit an amount \n 2.To withdraw an amount \n 3.To display balance \n 4.To display with full details \n 5.Exit \n Enter your choice \n";
@@ -240,7 +262,8 @@ int main(){
   
     }
     else
-      cout<<"\n Invalid account";
+      cout<<"\n Invalid account number";
+      goto Q;
 
     }
 
