@@ -49,20 +49,20 @@ class current_acct : public Account
       cout<<"\n\nBalance :- "<<balance;
       cout<<"\nEnter amount to be withdraw :-";
       cin>>withdraw;
-      balance=balance-withdraw;
-      if(balance < 500)
-      {
-      penalty=(500-balance)/10;
-      balance=balance-penalty;
-      cout<<"\nBalance after deducting penalty : "<<balance;
+      if(withdraw<=balance){
+        balance=balance-withdraw;
+        if(balance<500){
+          balance=balance-50;
+          cout<<"\n \tPenaty deducted for not maintaining minimum ! \n Balance="<<balance<<endl;
+        }
+        else
+          cout<<"\n Balance="<<balance<<endl;
+
+
       }
-      else if(withdraw > balance)
-      {
-      cout<<"\n Insufficient balance\n";
-      balance=balance+withdraw;
-      }
-    else
-      cout<<"\nAfter Withdrawl your Balance : "<<balance;
+      else
+        cout<<"Insufficient balance"<<endl;
+
      }
 };
 double current_acct::balance=0;
@@ -90,21 +90,19 @@ static double savings_bal;
       cout<<"\nBalance :- "<<savings_bal;
       cout<<"\nEnter amount to be withdraw :-";
       cin>>withdraw;
-      savings_bal-=withdraw;
-      if(withdraw > savings_bal)
+      if (withdraw<=savings_bal)
       {
-      cout<<"\n\n Insufficient balance \n";
-      savings_bal+=withdraw;
+        savings_bal=savings_bal-withdraw;
+        cout<<"\n Balance after withdrawal ="<<savings_bal<<endl;
       }
-
-        else
-      cout<<"\nAfter Withdrawl your Balance : "<<savings_bal;
+      else
+        cout<<"\n\t Insufficient Balance!"<<endl;
 
      }
 };
 double savings_acct::savings_bal=0;
 
-int Account:: Exist()
+int Account :: Exist() //Scope resolution
 {
   if(acc_holder_name==""){
     return 0;
@@ -186,7 +184,7 @@ int main()
         }
         while(1)
         {
-          cout<<"\n Menu \n 1.To deposit an amount \n 2.To withdraw an amount \n 3.To display balance \n 4.To display with full details \n 5.Exit \n Enter your choice \n";
+          cout<<"\n Menu \n 1.To deposit an amount \n 2.To withdraw an amount \n 3.To display balance \n 4.To display with full details \n 5.Exit \n Enter your choice: ";
           int choice4;
           cin>>choice4;
           switch(choice4)
@@ -234,7 +232,7 @@ int main()
         }
         while(1)
         {
-          cout<<"\n Menu \n 1.To deposit an amount \n 2.To withdraw an amount \n 3.To display balance \n 4.To display with full details \n 5.Exit \n Enter your choice \n";
+          cout<<"\n Menu \n 1.To deposit an amount \n 2.To withdraw an amount \n 3.To display balance \n 4.To display with full details \n 5.Exit \n Enter your choice: ";
           int choice4;
           cin>>choice4;
      switch(choice4)
