@@ -30,7 +30,7 @@ public:
 
 class current_acct : public Account
 {
-  static double balance;
+   double balance;
   public:
     void disp_current_bal()
     {
@@ -69,7 +69,7 @@ double current_acct::balance=0;
 
 class savings_acct : public Account
 {
-static double savings_bal;
+ double savings_bal;
   public:
      void disp_savings_bal()
     {
